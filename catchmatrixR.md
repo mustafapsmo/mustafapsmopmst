@@ -39,15 +39,10 @@ makeCacheMatrix <- function(x = matrix()) {
 ## If the inverse matrix is existing, get the cached inverse
 ## otherwise calculate the invere of cached matrix
 
-cacheSolve <- function(x, ...) {
-    ## Return a matrix that is the inverse of 'x'
-    inv <- x$getinv()
-    if (!is.null(inv)) {
-        return(inv)
-    }
-    m <- x$get()
-    inv <- solve(m)
-    x$setinv(inv)
-    inv
-}
-© 2020 GitHub, Inc.
+##Example
+mat1 <- matrix(c(4,3,3,2),2,2)
+mat2 <- makeCacheMatrix(mat1)
+mat3 <- cacheSolve(mat2)
+print(mat3)
+mat3 <- cacheSolve(mat2)
+print(mat3)
